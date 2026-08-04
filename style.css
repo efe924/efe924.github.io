@@ -1,0 +1,83 @@
+/* 1. Temel Ayarlar ve Özel Renk Paleti */
+:root {
+    /* Sitenin ana renklerini buradan tek tıkla değiştirebilirsin */
+    --ana-renk: #2563eb;      /* Modern ve güven veren bir mavi */
+    --ikinci-renk: #1e40af;   /* Hover (üzerine gelme) durumları için daha koyu mavi */
+    --yazi-koyu: #1f2937;
+    --arkaplan-acik: #f9fafb;
+}
+
+/* Yumuşak Kaydırma (Smooth Scrolling) */
+html {
+    scroll-behavior: smooth; /* Menüdeki linklere tıklayınca sayfayı aniden değil, kaydırarak indirir */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--yazi-koyu);
+}
+
+/* 2. Hero (Giriş) Alanı Özel Arka Planı */
+#hero {
+    /* Düz renk yerine hafif ve şık bir renk geçişi (gradient) ekliyoruz */
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+/* 3. Proje ve Yetenek Kartları İçin Animasyonlar */
+.card {
+    /* Değişimlerin aniden değil, 0.3 saniyede yumuşakça olmasını sağlar */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    /* Kartın üzerine fare ile gelindiğinde kartı 10 piksel yukarı kaldırır ve gölgesini büyütür */
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 4. Buton Etkileşimleri */
+.btn-primary {
+    background-color: var(--ana-renk);
+    border-color: var(--ana-renk);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--ikinci-renk);
+    border-color: var(--ikinci-renk);
+    /* Butonu %5 oranında büyüterek tıklama hissini artırır */
+    transform: scale(1.05); 
+}
+
+/* 5. Yetenekler Listesi Etkileşimi */
+#yetenekler .card-text {
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+#yetenekler .card-text:hover {
+    color: var(--ana-renk);
+    padding-left: 10px; /* Üzerine gelince metni sağa doğru hafifçe iter */
+    cursor: default;
+}
+
+/* 6. Navigasyon (Menü) Özelleştirmesi */
+.navbar {
+    /* Menü arka planına hafif bir saydamlık (blur) efekti verebilirsin */
+    background-color: rgba(33, 37, 41, 0.95) !important;
+    backdrop-filter: blur(5px);
+    transition: padding 0.3s ease;
+}
+
+/* Başlangıçta ögeleri gizle ve hafif aşağı çek */
+.gizli {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out; /* Animasyon hızı ve yumuşaklığı */
+}
+
+/* Sayfada görünür olduğunda çalışacak sınıf */
+.gorunur {
+    opacity: 1;
+    transform: translateY(0);
+}
+
